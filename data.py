@@ -8,6 +8,9 @@ import pandas as pd
 # Read in Data
 df = pd.read_parquet("onion.parquet")
 
+# Take only headers
+df['text'] = df['text'].str.split(' #~#').str[0]
+
 # Convert text column into list 
 d = list(df['text']) 
   
